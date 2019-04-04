@@ -1,0 +1,22 @@
+extends menu
+
+block cont
+		p #{mensaje}
+		form(id="nuevojugador" action="/insertajugador" method="POST")
+			p
+				label(for="name") Nombre:
+				input(id="name" type ="text" name="nombre")
+			p
+				label(for="team") Equipo Actual:
+				input(id="team" type ="text" name="Equipo")
+			p
+				label(for="oldteam1") Equipo Anterior1:
+				input(id="oldteam1" type ="text" name="viejoequipo1")
+			p
+				label(for="oldteam2") Equipo Anterior2:
+				input(id="oldteam2" type ="text" name="viejoequipo2")
+			p
+				label(for="year") fecha que firmo:
+				input(id="year" type ="date" name="año")
+			p
+				input(type="submit" value="Publicar")
