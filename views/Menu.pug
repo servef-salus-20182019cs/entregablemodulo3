@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title PC BASKET
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		
+	body
+		h1(id="titulo")= Titulo
+		div(class="menu")
+			ul(class="desplegable")
+				li
+					a(href="/historial") Historial
+				li
+					a(href="/equipos")  Equipos
+				li
+					a(href="/insertarJugador")  Insertar Jugador
+		p(id="checking") #{mensaje}
+		block content
