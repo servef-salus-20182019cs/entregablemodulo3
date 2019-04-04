@@ -13,6 +13,8 @@ router.post('/historial', (req, res)=>{
 	
 	modelo.historial(req.body,(error, resultado)=>res.redirect('/historial'));
 });
-
+router.get('/insertaJugador',(req,res)=>{
+	res.render('insertaJugador)
+});
 
 module.exports = router;
