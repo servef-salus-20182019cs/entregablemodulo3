@@ -1,0 +1,8 @@
+extends Menu
+
+block content
+	if registros
+		each registro in registros
+			h2 Nombre del jugador:
+			h2
+				span #{registro.nombre}, #{registro.equipo_actual}, #{registro.equipos_anterior}, #{registro.equipos_anterior1}, #{registro.fecha};

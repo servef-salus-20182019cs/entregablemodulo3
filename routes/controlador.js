@@ -11,8 +11,15 @@ router.get('/historial', (req, res)=>{
 
 router.post('/historial', (req, res)=>{
 	
-	modelo.historial(req.body,(error, resultado)=>res.redirect('/historial'));
+	modelo.historialJugador(req.body,(error, resultado)=>res.render('nombreDelJugador', {registros: resultado}));
 });
+
+/*router.get('/nombreDelJugador', (req, res)=>{
+	modelo.historialJugador((error, resultado)=>{
+		res.redirect('nombreDelJugador', {registros: resultado, mensaje: 'Aqui tiene su información:'})
+	})
+})*/
+
 
 
 module.exports = router;
