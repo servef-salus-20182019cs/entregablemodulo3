@@ -1,0 +1,9 @@
+extends Menu
+
+block content
+		form(id="historial" action="historial" method="post")
+			p
+				label(for="jugador") Escribe un jugador
+				input(type="text" name="jugador" id="jugador")
+			p
+				input(type="submit" name="enviar" value="enviar")
