@@ -13,6 +13,10 @@ router.post('/historial', (req, res)=>{
 	
 	modelo.historialJugador(req.body,(error, resultado)=>res.render('nombreDelJugador', {registros: resultado}));
 });
+router.get('/insertaJugador',(req,res)=>{
+	res.render('insertaJugador')
+});
+
 
 /*router.get('/nombreDelJugador', (req, res)=>{
 	modelo.historialJugador((error, resultado)=>{
@@ -22,4 +26,6 @@ router.post('/historial', (req, res)=>{
 
 
 
+
 module.exports = router;
+
