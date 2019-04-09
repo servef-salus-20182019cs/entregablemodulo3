@@ -18,8 +18,9 @@ El reparto del trabajo fue de la siguente manera :
 -Creacción del menu Insertar_Jugador y Inserta_Historial y el menú fue realizado por Alejandro Martinez(kamesi16).
 -La confección y elaboración del archivo de estilo fue una idea del equipo en conjunto.
 -La creación del archivo "README.md" fue realizado por Carlos Soler(carlossoleroig).
+-La confección y elaboración del archivo de controlador y modelo fue en conjunto.
 
 La busqueda de informacion fue hayada en:
 -https://es.nba.com/
--https:///es.wikipedia.org/wiki/Wikipedia:Portada
+-https://es.wikipedia.org/wiki/Wikipedia:Portada
 -Revista NBA.
