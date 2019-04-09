@@ -4,6 +4,9 @@ Las tecnologias usadas para el proyecto han sido:
 -HTML.
 -CSS.
 -Mysql.
+-PUG(como gestor de plantillas)
+-Express(como esqueleto del equipo)
+-El plugin de oveerride
 
 Las páginas se componen de:
 -Un buscador donde se busca un juegador el cual te lista los equipos donde se encuentra jugando con su correspondiente fecha de fichaje y sus equipos anteriores con su correspondiente fecha de fichaje la cual se encuentra en el enlace de historial.
@@ -19,6 +22,7 @@ El reparto del trabajo fue de la siguente manera :
 -La confección y elaboración del archivo de estilo fue una idea del equipo en conjunto.
 -La creación del archivo "README.md" fue realizado por Carlos Soler(carlossoleroig).
 -La confección y elaboración del archivo de controlador y modelo fue en conjunto.
+-La creación del esqueleto con express fue subido por Ivan Salgado(topeivan59).
 
 La busqueda de informacion fue hayada en:
 -https://es.nba.com/
