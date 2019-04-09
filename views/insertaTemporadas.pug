@@ -1,0 +1,24 @@
+extends Menu
+
+block content
+		p #{mensaje}
+		form(id="nuevojugador" action="/insertaTemporadas" method="post")
+			p Añadir temporadas en un Club del Jugador: 
+			p Busca Jugador:
+				if registros
+					select(name="nombresJugadores" form="nuevojugador")
+						each registro in registros
+							option(value=registro.id_jugador) #{registro.nombre}
+			p Busca Club:
+				if registros1
+					select(name="nombresEquipos" form="nuevojugador")
+						each registro in registros1
+							option(value=registro.id_equipo) #{registro.club}
+			p
+				label(for="fichaje") Fecha Inicio Contrato:
+				input(id="fichaje" type="date" name="anyoini")
+			p
+				label(for="conclusion") Fecha conclusión contrato:
+				input(id="conclucion" type="date" name="anyofin")
+			p
+				input(type="submit" value="Publicar")

@@ -14,24 +14,25 @@ router.post('/historial', (req, res)=>{
 	modelo.historialJugador(req.body,(error, resultado)=>res.render('nombreDelJugador', {registros: resultado}));
 });
 
-router.get('/insertaJugador',(req,res)=>{
-	res.render('insertaJugador')
+router.get('/insertaJugador', (req, res)=>{
+		res.render('insertaJugador')
 });
-router.post('/insertaJugador',(req,res)=>{
-	/*console.log("entro1");*/
-	modelo.insertaJugador(req.body,(error,resultado)=>{
-		/*console.log("ENTRO3");*/
-		console.log(error);
-		console.log(resultado);
-		res.render('insertaJugador', {mensaje: "El registro se insertó con éxito."})
-	})
-})
 
-router.get('/equipos',(req,res)=>{
-	res.render('plantillas');
+router.post('/insertaJugador', (req, res)=>{
+	modelo.nuevoRegistro(req.body,(error, resultado)=>
+		res.render('insertaJugador', { mensaje: 'El Jugador se inserto correctamente'}));
 });
-router.post('equipos',(req,res)=>{
-	modelo.team(req.body,(error,resultado)=>res.render('plantillas', {registros: resultado}));
+
+router.get('/insertaTemporadas', (req, res)=>{
+		modelo.jugadoresNBA((error, resultado)=>{
+			modelo.equiposNBA((error2, resultado2)=>{
+				res.render('insertaTemporadas', {registros: resultado, registros1:resultado2})
+			});
+		});
+});
+
+router.post('/insertaTemporadas', (req, res)=>{
+	modelo.registroTemporadas(req.body,(error, resultado)=>res.redirect('/insertaTemporadas'));
 });
 
 
