@@ -17,5 +17,22 @@ router.post('/historial', (req, res)=>{
 router.get('/insertaJugador',(req,res)=>{
 	res.render('insertaJugador')
 });
+router.post('/insertaJugador',(req,res)=>{
+	/*console.log("entro1");*/
+	modelo.insertaJugador(req.body,(error,resultado)=>{
+		/*console.log("ENTRO3");*/
+		console.log(error);
+		console.log(resultado);
+		res.render('insertaJugador', {mensaje: "El registro se insertó con éxito."})
+	})
+})
+
+router.get('/equipos',(req,res)=>{
+	res.render('plantillas');
+});
+router.post('equipos',(req,res)=>{
+	modelo.team(req.body,(error,resultado)=>res.render('plantillas', {registros: resultado}));
+});
+
 
 module.exports = router;
