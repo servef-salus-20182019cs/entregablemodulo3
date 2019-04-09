@@ -1,0 +1,8 @@
+extends Menu
+block content
+	form(id="teams" action="/equipos" method="post")
+			p
+				label(for="team") Escribe un equipo para ver su plantilla:
+				input(type="text" name="team" id="team")
+			p
+				input(type="submit" name="enviar" value="buscar")
