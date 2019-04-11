@@ -1,0 +1,9 @@
+extends Menu
+
+block content
+		h2 Jugadores Actualmente en el equipo: 
+		if registros
+			p #{registros[0].club}
+			each registro in registros
+				h2 
+					span #{registro.nombre}

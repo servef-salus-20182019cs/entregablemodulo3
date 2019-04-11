@@ -1,8 +1,13 @@
 extends Menu
+
 block content
-	form(id="teams" action="/equipos" method="post")
+		p #{mensaje}
+		h2 Lista la plantilla Actual del Club de la NBA que desees
+		form(id="buscaEquipo" action="/buscadorEquipo" method="post")
+			p Buscar Equipo:
+				if registros
+					select(name="equiposActuales" form="buscaEquipo")
+						each registro in registros
+							option(value=registro.id_equipo) #{registro.club}
 			p
-				label(for="team") Escribe un equipo para ver su plantilla:
-				input(type="text" name="team" id="team")
-			p
-				input(type="submit" name="enviar" value="buscar")
+				input(type="submit" value="Buscar")

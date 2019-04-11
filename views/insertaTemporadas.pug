@@ -1,9 +1,8 @@
 extends Menu
 
 block content
-		p #{mensaje}
 		form(id="nuevojugador" action="/insertaTemporadas" method="post")
-			p Añadir temporadas en un Club del Jugador: 
+			h2 Añade las Temporadas del Jugador que desees, y el Club al que perteneció o pertenece
 			p Busca Jugador:
 				if registros
 					select(name="nombresJugadores" form="nuevojugador")

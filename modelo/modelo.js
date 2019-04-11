@@ -44,4 +44,13 @@ const registroTemporadas = (registro1, callback)=>{
 	})
 }
 
-module.exports = {historialJugador, equiposNBA, jugadoresNBA, nuevoRegistro, registroTemporadas};
+const plantillaNBA = (equipo, callback)=>{
+	conexion.query('SELECT J.nombre, E.club FROM jugadores AS J INNER JOIN jugador_equipo AS JE ON (J.id_jugador=JE.id_jugador) LEFT JOIN equipos AS E ON (E.id_equipo = JE.id_equipo) WHERE E.id_equipo=? AND fecha_fin BETWEEN "2019/01/01" AND "2019/12/31";', equipo.equiposActuales, (error,resultado)=>{
+		console.log(resultado)
+		if (error) throw error;
+        else {
+			return callback(error, resultado);
+		}
+	});
+};
+module.exports = {historialJugador, equiposNBA, jugadoresNBA, nuevoRegistro, registroTemporadas, plantillaNBA};
