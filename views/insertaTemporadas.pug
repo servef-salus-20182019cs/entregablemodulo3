@@ -3,16 +3,20 @@ extends Menu
 block content
 		form(id="nuevojugador" action="/insertaTemporadas" method="post")
 			h2 Añade las Temporadas del Jugador que desees, y el Club al que perteneció o pertenece
-			p Busca Jugador:
-				if registros
-					select(name="nombresJugadores" form="nuevojugador")
-						each registro in registros
-							option(value=registro.id_jugador) #{registro.nombre}
-			p Busca Club:
-				if registros1
-					select(name="nombresEquipos" form="nuevojugador")
-						each registro in registros1
-							option(value=registro.id_equipo) #{registro.club}
+			if registros3
+				input(type="hidden" name="nombresJugadores" value=registros3[0].id_jugador)
+				h2 #{registros3[0].nombre}
+			if registros1
+				p Busca Jugador:
+				select(name="nombresJugadores" form="nuevojugador")
+					each registro in registros1
+						option(value=registro.id_jugador) #{registro.nombre}
+		
+			if registros2
+				p Busca Club:
+				select(name="nombresEquipos" form="nuevojugador")
+					each registro in registros2
+						option(value=registro.id_equipo) #{registro.club}
 			p
 				label(for="fichaje") Fecha Inicio Contrato:
 				input(id="fichaje" type="date" name="anyoini")

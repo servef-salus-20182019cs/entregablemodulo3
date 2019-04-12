@@ -35,19 +35,19 @@ router.get('/insertaJugador', (req, res)=>{
 });
 
 router.post('/insertaJugador', (req, res)=>{
-	modelo.nuevoRegistro(req.body,(error3, resultado3)=>{
-		modelo.jugadoresNBA((error, resultado)=>{
+	modelo.nuevoRegistro(req.body,(error, resultado)=>{
+		modelo.rutaNuevoRegistro(req.body,(error3, resultado3)=>{
 			modelo.equiposNBA((error2, resultado2)=>{
-				res.render('insertaTemporadas', { registros: resultado, registros1:resultado2, mensaje: 'El Jugador se inserto correctamente, añade el club al que pertenece o ha pertenecido'})
+				res.render('insertaTemporadas', { registros3: resultado3, registros2:resultado2, mensaje: 'El Jugador se inserto correctamente, añade el club al que pertenece o ha pertenecido'})
 			});
 		});
 	});
 });
 
 router.get('/insertaTemporadas', (req, res)=>{
-		modelo.jugadoresNBA((error, resultado)=>{
+		modelo.jugadoresNBA((error1, resultado1)=>{
 			modelo.equiposNBA((error2, resultado2)=>{
-				res.render('insertaTemporadas', {registros: resultado, registros1:resultado2})
+				res.render('insertaTemporadas', {registros1: resultado1, registros2:resultado2})
 			});
 		});
 });

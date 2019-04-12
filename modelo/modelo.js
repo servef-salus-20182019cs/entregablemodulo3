@@ -34,6 +34,18 @@ const nuevoRegistro = (registro, callback)=>{
 	})
 }
 
+const rutaNuevoRegistro = (insertado, callback)=>{
+	let miConsulta = 'SELECT * FROM jugadores WHERE nombre=?'
+	conexion.query(miConsulta,insertado.nombre, (error,resultado)=>{
+		console.log(miConsulta);
+		if (error) throw error;
+        else {
+        	console.log(resultado);
+			return callback(error, resultado);
+		}
+	})
+}
+
 const registroTemporadas = (registro1, callback)=>{
 	console.log(registro1);
 	conexion.query('INSERT INTO jugador_equipo (id_jugador, id_equipo, fecha_inicio, fecha_fin) VALUES ("'+ registro1.nombresJugadores + '","' + registro1.nombresEquipos + '","' + registro1.anyoini + '","' + registro1.anyofin + '")', (error,resultado)=>{
@@ -53,4 +65,4 @@ const plantillaNBA = (equipo, callback)=>{
 		}
 	});
 };
-module.exports = {historialJugador, equiposNBA, jugadoresNBA, nuevoRegistro, registroTemporadas, plantillaNBA};
+module.exports = {historialJugador, equiposNBA, jugadoresNBA, nuevoRegistro, registroTemporadas, plantillaNBA, rutaNuevoRegistro};
