@@ -55,6 +55,17 @@ router.get('/insertaTemporadas', (req, res)=>{
 router.post('/insertaTemporadas', (req, res)=>{
 	modelo.registroTemporadas(req.body,(error, resultado)=>res.redirect('/insertaTemporadas'));
 });
-
+router.get('/insertaLeyenda',(req,res)=>{
+	res.render('inserta_retirados')
+})
+router.post('/insertaLeyenda', (req, res)=>{
+	modelo.viejoRegistro(req.body,(error3, resultado3)=>{
+		modelo.leyendasNBA(req.body, (error, resultado)=>{
+			modelo.equiposNBA((error2, resultado2)=>{
+				res.render('insertaTemporadas', { registros3: resultado, registros2:resultado2, mensaje: 'El Jugador retirado se inserto correctamente, añade el club al que pertenece o ha pertenecido'})
+			});
+		});
+	});
+});
 
 module.exports = router;

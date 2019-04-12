@@ -1,0 +1,10 @@
+extends Menu
+
+block content
+		h2 Inserta un Jugador retirado en la base de Datos:
+		form(id="nuevaleyenda" action="/insertaLeyenda" method="post")
+			p
+				label(for="jugador") Nombre:
+				input(id="jugador" type="text" name="nombre")
+			p
+				input(type="submit" value="Publicar")

@@ -65,4 +65,22 @@ const plantillaNBA = (equipo, callback)=>{
 		}
 	});
 };
-module.exports = {historialJugador, equiposNBA, jugadoresNBA, nuevoRegistro, registroTemporadas, plantillaNBA, rutaNuevoRegistro};
+const viejoRegistro = (dato, callback)=>{
+	conexion.query('INSERT INTO jugadores_retirados (nombre_leyenda) VALUES ("'+ dato.nombre + '")', (error,resultado)=>{
+		console.log('entro1');
+		if (error) throw error;
+        else {
+			return callback(error, resultado);
+		}
+	})
+}
+const leyendasNBA = (datos,callback)=>{
+	conexion.query('SELECT id_jugador FROM jugadores_retirados WHERE nombre_leyenda=?', datos.nombre, (error, resultado)=>{
+		if (error) throw error;
+		else {
+			return callback(error, resultado);
+		}
+	})
+}
+
+module.exports = {historialJugador, equiposNBA, jugadoresNBA, nuevoRegistro, registroTemporadas, plantillaNBA, rutaNuevoRegistro, viejoRegistro, leyendasNBA};
